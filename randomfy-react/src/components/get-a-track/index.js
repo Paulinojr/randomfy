@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import './styles.css';
+import api from '../../services/api';
+
 
 export default class getATrack extends Component {
 
-    getATrack = () => {
+    getATrack = async () => {
         console.log('i will get a track');
     }
 
