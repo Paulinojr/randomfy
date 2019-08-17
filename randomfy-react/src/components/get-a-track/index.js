@@ -17,19 +17,22 @@ export default class getATrack extends Component {
         console.log(result.data);
 
         this.setState({ 
-            musicName: result.data.name ,
-            artists: result.data.artists
+            musicName: result.data.name,
+            artists: result.data.artists,
+            img: result.data.album.images ? result.data.album.images[0].url : ''
         })
     }
 
     render() {
-        const {musicName, artists} = this.state;
+        const {musicName, artists, img} = this.state;
         return (
             <div>
                 <h1>get a track</h1>
                 <button onClick={this.getATrack}>
                     get a track
                 </button>
+                <br />
+                <img src={img}></img>
                 <ul>
                     <li>Music Name: {musicName}</li>
 
