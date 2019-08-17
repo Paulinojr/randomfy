@@ -6,7 +6,10 @@ import api from '../../services/api';
 export default class getATrack extends Component {
 
     getATrack = async () => {
-        console.log('i will get a track');
+        console.log('calling api...');
+        const result = await api.get(`/products?page=${1}`);
+        console.log('result:');
+        console.log(result);
     }
 
     render() {
