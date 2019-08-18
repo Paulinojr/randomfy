@@ -5,34 +5,43 @@ import api from '../../services/api';
 
 export default class getATrack extends Component {
     state = {
+        trackID: '',
         artists: [],
         musicName: ""
     }
 
     getATrack = async () => {
-
-        console.log('calling api...');
-        const result = await api.get(`tracks/7M6YvTJfLx3c8hiPlvCwl0`);
+        const {trackID} = this.state;
+        console.log('calling api using trackID ' + trackID + ' ...');
+        const result = await api.get(`tracks/${trackID}`);
         console.log('result:');
         console.log(result.data);
 
         this.setState({ 
             musicName: result.data.name,
             artists: result.data.artists,
-            img: result.data.album.images ? result.data.album.images[0].url : ''
+            img: result.data.album.images ? result.data.album.images[0].url : null
         })
     }
+
+    setTrackID = (trackID) => {
+        this.setState({trackID});
+    };
 
     render() {
         const {musicName, artists, img} = this.state;
         return (
             <div>
                 <h1>get a track</h1>
+                <input type="text" onChange={event=>{
+                    this.setTrackID(event.target.value);
+
+                }}></input>
                 <button onClick={this.getATrack}>
                     get a track
                 </button>
                 <br />
-                <img src={img}></img>
+                <img alt="album image" src={img}></img>
                 <ul>
                     <li>Music Name: {musicName}</li>
 
