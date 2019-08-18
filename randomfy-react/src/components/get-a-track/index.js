@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './styles.css';
 import api from '../../services/api';
+import {handleError} from '../error-handler';
 
 
 export default class getATrack extends Component {
@@ -12,13 +13,23 @@ export default class getATrack extends Component {
 
     getATrack = async () => {
         const {trackID} = this.state;
-        const result = await api.get(`tracks/${trackID}`);
+        try{
+            const result = await api.get(`tracks/${trackID}`);
 
-        this.setState({ 
-            musicName: result.data.name,
-            artists: result.data.artists,
-            imgSrc: result.data.album.images ? result.data.album.images[0].url : null
-        })
+            this.setState({
+                musicName: result.data.name,
+                artists: result.data.artists,
+                imgSrc: result.data.album.images ? result.data.album.images[0].url : null
+            })
+        }
+        catch(e) {
+            if(e.response.status === 401) {
+                // reloadAccessToken();
+                // getATrack();
+            }
+            handleError(e);
+            // console.log(e.response.status);
+        }
     }
 
     setTrackID = (trackID) => {
