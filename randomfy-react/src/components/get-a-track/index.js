@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './styles.css';
 import {api, instanceForReloadAccessToken} from '../../services/api';
 import {handleError} from '../error-handler';
+import qs from 'qs';
+import axios from 'axios';
 
 
 export default class getATrack extends Component {
@@ -24,21 +26,27 @@ export default class getATrack extends Component {
         }
         catch(e) {
             if(e.response.status === 401) {
-                console.log('calling instanceForReloadAccessToken.post...');
-                // reloadAccessToken();
-                
-                const result = await instanceForReloadAccessToken.post(
-                    '/token',
-                    {
-                        'grant_type' : 'client_credentials'
-                    }
-                );
+                const data = {
+                    'grant_type' : 'client_credentials'
+                };
+                const options = {
+                    method: 'POST',
+                    headers: {
+                        'Authorization' : 'Basic MjliMzc2MWMzYTcwNDA5MTliZTgyODRkN2JhNjM4ZTA6NmRkZjAwYWQyOTI5NDA3ZjliZDAxOGY3MjdjYzg0OWI=',
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    data: qs.stringify(data),
+                    url: 'https://accounts.spotify.com/api/token',
+                };
+                console.log('calling axios(options) ...');
+                const result = await axios(options);
 
-                console.log('SUCCESSFUL result of instanceForReloadAccessToken:');
+
+                console.log('SUCCESSFUL result:');
                 console.log(result);
                 // getATrack();
             }
-            handleError(e);
+            // handleError(e);
         }
     }
 
