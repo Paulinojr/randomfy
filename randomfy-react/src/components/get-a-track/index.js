@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './styles.css';
-import api from '../../services/api';
+import {api, instanceForReloadAccessToken} from '../../services/api';
 import {handleError} from '../error-handler';
 
 
@@ -24,11 +24,21 @@ export default class getATrack extends Component {
         }
         catch(e) {
             if(e.response.status === 401) {
+                console.log('calling instanceForReloadAccessToken.post...');
                 // reloadAccessToken();
+                
+                const result = await instanceForReloadAccessToken.post(
+                    '/token',
+                    {
+                        'grant_type' : 'client_credentials'
+                    }
+                );
+
+                console.log('SUCCESSFUL result of instanceForReloadAccessToken:');
+                console.log(result);
                 // getATrack();
             }
             handleError(e);
-            // console.log(e.response.status);
         }
     }
 
