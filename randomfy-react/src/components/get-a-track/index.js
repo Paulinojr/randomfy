@@ -12,15 +12,12 @@ export default class getATrack extends Component {
 
     getATrack = async () => {
         const {trackID} = this.state;
-        console.log('calling api using trackID ' + trackID + ' ...');
         const result = await api.get(`tracks/${trackID}`);
-        console.log('result:');
-        console.log(result.data);
 
         this.setState({ 
             musicName: result.data.name,
             artists: result.data.artists,
-            img: result.data.album.images ? result.data.album.images[0].url : null
+            imgSrc: result.data.album.images ? result.data.album.images[0].url : null
         })
     }
 
@@ -29,26 +26,28 @@ export default class getATrack extends Component {
     };
 
     render() {
-        const {musicName, artists, img} = this.state;
+        const {musicName, artists, imgSrc} = this.state;
         return (
             <div>
                 <h1>get a track</h1>
                 <input type="text" onChange={event=>{
                     this.setTrackID(event.target.value);
-
                 }}></input>
                 <button onClick={this.getATrack}>
                     get a track
                 </button>
                 <br />
-                <img alt="album image" src={img}></img>
+                { imgSrc 
+                    ? <img alt="album cover" src={imgSrc}></img> 
+                    : ''
+                }
                 <ul>
-                    <li>Music Name: {musicName}</li>
+                    <li key="music-name">Music Name: {musicName}</li>
 
                     <p>Artists: </p>
-                    {artists.map(artist => {
+                    {artists.map((artist, i) => {
                         return (
-                            <li><a href={artist.external_urls.spotify}>{artist.name}</a></li>
+                            <li key={i}><a href={artist.external_urls.spotify}>{artist.name}</a></li>
                         )
                     })}
 
