@@ -25,30 +25,33 @@ export default class getATrack extends Component {
             })
         }
         catch(e) {
-            if(e.response.status === 401) {
-                const data = {
-                    'grant_type' : 'client_credentials'
-                };
-                const options = {
-                    method: 'POST',
-                    headers: {
-                        'Authorization' : 'Basic MjliMzc2MWMzYTcwNDA5MTliZTgyODRkN2JhNjM4ZTA6NmRkZjAwYWQyOTI5NDA3ZjliZDAxOGY3MjdjYzg0OWI=',
-                        'Content-Type': 'application/x-www-form-urlencoded'
-                    },
-                    data: qs.stringify(data),
-                    url: 'https://accounts.spotify.com/api/token',
-                };
-                console.log('calling axios(options) ...');
-                const result = await axios(options);
-
-
-                console.log('SUCCESSFUL result:');
-                console.log(result);
-                // getATrack();
-            }
-            // handleError(e);
+            handleError(e);
         }
     }
+
+    generateToken = async () => {
+        const data = {
+            'grant_type' : 'client_credentials'
+        };
+        const options = {
+            method: 'POST',
+            headers: {
+                'Authorization' : 'Basic MjliMzc2MWMzYTcwNDA5MTliZTgyODRkN2JhNjM4ZTA6NmRkZjAwYWQyOTI5NDA3ZjliZDAxOGY3MjdjYzg0OWI=',
+                'content-type': 'application/x-www-form-urlencoded',
+                'Access-Control-Allow-Origin': '*',
+                'Accept': 'application/json',
+                'access-control-allow-headers': 'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token',
+            },
+            data: qs.stringify(data),
+            url: 'https://accounts.spotify.com/api/token',
+        };
+        console.log('calling axios(options) ...');
+        const result2 = await axios(options);
+
+
+        console.log('SUCCESSFUL result:');
+        console.log(result2);
+    } 
 
     setTrackID = (trackID) => {
         this.setState({trackID});
@@ -64,6 +67,10 @@ export default class getATrack extends Component {
                 }}></input>
                 <button onClick={this.getATrack}>
                     get a track
+                </button>
+                <br />
+                <button onClick={this.generateToken}>
+                    generate a new token for god's sake
                 </button>
                 <br />
                 { imgSrc 
