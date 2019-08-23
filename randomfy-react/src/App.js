@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
 import Header from './components/Header/Header';
-import { TracksSliderContainer } from './components/TracksSlider/TracksSlider.styled';
+import  TracksSlider  from './components/TracksSlider/TracksSlider';
 
 function App() {
   return (
     <div className="App">
       <Header></Header>
-      <TracksSliderContainer></TracksSliderContainer>
+      <TracksSlider></TracksSlider>
     </div>
   );
 }
