@@ -11,10 +11,40 @@ export default class TracksSlider extends Component{
     render(){
         var settings = {
             dots: true,
-            infinite: false,
-            speed: 500,
+            infinite: true,
+            mobileFirst: true,
             slidesToShow: 3,
-            slidesToScroll: 1
+            responsive: [
+                {
+                    
+                    breakpoint: 1024,
+                    settings: {
+                        arrows: false,
+                        centerMode: true,
+                        centerPadding: '40px',
+                        slidesToShow: 3
+                    }
+                  },
+                  {
+                    breakpoint: 600,
+                    settings: {
+                        arrows: false,
+                        centerMode: true,
+                        centerPadding: '40px',
+                        slidesToShow: 2
+                    }
+                  },
+                  {
+                    breakpoint: 480,
+                    settings: {
+                        arrows: false,
+                        centerMode: true,
+                        centerPadding: '40px',
+                        slidesToShow: 1
+
+                    }
+                  }
+            ]
           };
         return(
             <TracksSliderContainer>
