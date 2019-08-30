@@ -41,16 +41,11 @@ const TracksSliderItemImage = styled.div`
     height: 200px;
     @media only screen and (min-width: 600px){
         height: 250px;
-    } 
+    }
 `
 
-const TracksSliderItemExport = styled.div`
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
+const TracksSliderItemExport = styled.p`
     color: #1DB954;
-    width: 100%;
-    height: 100%;
     font-size: 16px;
 `
 

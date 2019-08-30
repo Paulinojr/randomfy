@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { TracksSliderItemContainer, TracksSliderItemTitle, TracksSliderItemImage, TracksSliderItemExport } from './TracksSliderItem.styled'
 import placeholder from '../../assets/images/placeholder-playlist.png'
+import { FiDownload } from 'react-icons/fi'
 
 
 export default class TracksSliderItem extends Component{
@@ -10,10 +11,7 @@ export default class TracksSliderItem extends Component{
                 <TracksSliderItemTitle> MAY/19 </TracksSliderItemTitle>
                 <TracksSliderItemImage img={placeholder}></TracksSliderItemImage>
                 <TracksSliderItemExport>
-                    <p>
-                        Export as playlist
-                    </p>
-                    
+                        Export as playlist <FiDownload></FiDownload>                    
                 </TracksSliderItemExport>
             </TracksSliderItemContainer>
         )
