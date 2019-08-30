@@ -23,7 +23,24 @@
   color: #61dafb;
 }
 
+.slides {
+  position: relative;
+}
 
+.slick-prev, .slick-next {
+  position: absolute;
+  top: 55%;
+}
+
+.slick-prev {
+  left: 3%;
+  z-index: 10;
+}
+.slick-next {
+  right: 3%;
+  z-index: 10;
+
+}
 
 @keyframes App-logo-spin {
   from {

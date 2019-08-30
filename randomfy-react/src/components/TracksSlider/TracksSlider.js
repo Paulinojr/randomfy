@@ -13,37 +13,45 @@ export default class TracksSlider extends Component{
             dots: true,
             infinite: true,
             mobileFirst: true,
-            slidesToShow: 3,
+            className: 'slides',
             responsive: [
                 {
-                    
+                    breakpoint: 1900,
+                    settings: {
+                        arrows: true,
+                        centerMode: true,
+                        centerPadding: '50px',
+                        slidesToShow: 4
+                    }
+                },
+                {
                     breakpoint: 1024,
                     settings: {
-                        arrows: false,
+                        arrows: true,
                         centerMode: true,
-                        centerPadding: '40px',
-                        slidesToShow: 3
+                        centerPadding: '50px',
+                        slidesToShow: 4
                     }
-                  },
-                  {
+                },
+                {
                     breakpoint: 600,
                     settings: {
                         arrows: false,
                         centerMode: true,
-                        centerPadding: '40px',
+                        centerPadding: '50px',
                         slidesToShow: 2
                     }
-                  },
-                  {
+                },
+                {
                     breakpoint: 480,
                     settings: {
                         arrows: false,
                         centerMode: true,
-                        centerPadding: '40px',
+                        centerPadding: '50px',
                         slidesToShow: 1
 
                     }
-                  }
+                 }
             ]
           };
         return(
