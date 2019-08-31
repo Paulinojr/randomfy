@@ -3,7 +3,7 @@ import styled from 'styled-components'
 const TracksSliderItemContainer = styled.div`
     display: flex;
     flex-direction: column;
-   
+    position: relative;
 
     @media only screen and (max-width: 600px){
         margin-top: 10px;
@@ -39,14 +39,42 @@ const TracksSliderItemImage = styled.div`
     background-position: center;
     width: 100%;
     height: 200px;
+    position: relative;
     @media only screen and (min-width: 600px){
         height: 250px;
     }
 `
 
-const TracksSliderItemExport = styled.p`
+const TracksSliderItemOverlay = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 25;
+    right: 25;
+    height: 200px;
+    width: 250px;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: rgba(0, 0, 0, 0.6);
+    ${TracksSliderItemContainer}:hover &{
+        opacity: 1;
+        cursor: pointer;
+    }
+    @media only screen and (min-width: 600px){
+        height: 250px;
+        background-size: contain;
+        font-size: 21px;
+    }
+    font-family: 'Lato';
+    color: #fff;
+`
+
+const TracksSliderItemExport = styled.a`
     color: #1DB954;
     font-size: 16px;
 `
 
-export { TracksSliderItemContainer, TracksSliderItemTitle, TracksSliderItemImage, TracksSliderItemExport }
+export { TracksSliderItemContainer, TracksSliderItemTitle, TracksSliderItemImage, TracksSliderItemExport, TracksSliderItemOverlay }

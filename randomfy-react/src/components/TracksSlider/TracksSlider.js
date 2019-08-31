@@ -25,12 +25,12 @@ export default class TracksSlider extends Component{
                     }
                 },
                 {
-                    breakpoint: 1024,
+                    breakpoint: 1200,
                     settings: {
                         arrows: true,
                         centerMode: true,
-                        centerPadding: '50px',
-                        slidesToShow: 4
+                        centerPadding: '40px',
+                        slidesToShow: 3
                     }
                 },
                 {
