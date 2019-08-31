@@ -17,3 +17,7 @@ code {
   color: #1DB954 !important;
 }
 
+.slick-dots{
+  bottom: -40px !important;
+}
+

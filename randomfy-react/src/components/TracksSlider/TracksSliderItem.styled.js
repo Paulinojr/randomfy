@@ -55,18 +55,20 @@ const TracksSliderItemOverlay = styled.div`
     left: 25;
     right: 25;
     height: 200px;
-    width: 250px;
+    width: 200px;
     opacity: 0;
     transition: .5s ease;
     background-color: rgba(0, 0, 0, 0.6);
-    ${TracksSliderItemContainer}:hover &{
+    ${TracksSliderItemImage}:hover &{
         opacity: 1;
         cursor: pointer;
     }
+    
     @media only screen and (min-width: 600px){
         height: 250px;
         background-size: contain;
         font-size: 21px;
+        width: 250px;
     }
     font-family: 'Lato';
     color: #fff;
@@ -75,6 +77,11 @@ const TracksSliderItemOverlay = styled.div`
 const TracksSliderItemExport = styled.a`
     color: #1DB954;
     font-size: 16px;
+    margin-top: 5px;
+    :hover{
+        text-decoration: underline;
+        cursor: pointer;
+    }
 `
 
 export { TracksSliderItemContainer, TracksSliderItemTitle, TracksSliderItemImage, TracksSliderItemExport, TracksSliderItemOverlay }
