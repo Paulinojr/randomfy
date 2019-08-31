@@ -4,7 +4,8 @@ const ArtistListContainer = styled.div`
     background-color: #1DB954;
     height: 100%;
     width: 100%;
-
+    justify-content: center;
+    align-items: baseline;
     display: flex;
     flex-direction: column;
 `
