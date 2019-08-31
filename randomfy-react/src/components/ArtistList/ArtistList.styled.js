@@ -1,14 +1,15 @@
 import styled from 'styled-components'
 
-const TracksSliderContainer = styled.div`
-    background-color: #212121;
-    height: 500px;
+const ArtistListContainer = styled.div`
+    background-color: #1DB954;
+    height: 100%;
     width: 100%;
+
     display: flex;
     flex-direction: column;
 `
 
-const Title = styled.h1`
+const ArtistListContainerTitle = styled.h1`
     color: #fff;
     font-size: 18px;
     font-family: 'Lato';
@@ -24,7 +25,8 @@ const Title = styled.h1`
         text-align: center;
         justify-content: flex-start;
         margin-left: 50px;
+        margin-top: 2%;
     }
 `
 
-export { TracksSliderContainer, Title }
+export { ArtistListContainer, ArtistListContainerTitle }
