@@ -5,8 +5,10 @@ const ArtistCardContainer = styled.div`
     position: relative;
     height: 220px;
     width: 100%;
-    padding: 20px;
+    padding: 10px;
     justify-content: space-between;
+    overflow: hidden;
+
     `
 
 const ArtistCardImage = styled.img`
@@ -29,7 +31,10 @@ const ArtistCardWhiteboard = styled.div`
     display:flex;
     justify-content: flex-end;
     span{
-        width: 60%;
+        width: 55%;
+        @media screen and (device-aspect-ratio: 40/71) {
+            width: 50%;
+        }
         display:block;
         flex-direction: column;
         padding: 10px 0px;

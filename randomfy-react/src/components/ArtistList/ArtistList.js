@@ -17,9 +17,6 @@ export default class ArtistList extends Component{
 
                 </ArtistCard>
 
-                <ArtistCard>
-
-                </ArtistCard>
             </ArtistListContainer>
         )
     }
