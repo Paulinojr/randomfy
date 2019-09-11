@@ -47,6 +47,19 @@ const ArtistCardWhiteboard = styled.div`
             margin: 0;
             text-align: left;
         }
+
+        @media (min-width: 1200px){
+            p{
+                display: flex;
+                align-items: flex-end;
+                width: 90%;
+                justify-content: flex-end;
+                height: 50px;
+            }
+        }
+        @media (min-width: 1600px){
+            width: 70%;
+        }
     }
 `
 
