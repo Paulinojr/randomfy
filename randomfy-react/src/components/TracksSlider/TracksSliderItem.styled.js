@@ -24,7 +24,7 @@ const TracksSliderItemTitle = styled.p`
     color: #fff;
     font-family: 'Lato';
     text-align: center;
-    @media only screen and (max-width: 768px){
+    @media only screen and (max-width: 1024px){
         font-size: 18px;
     }
 `

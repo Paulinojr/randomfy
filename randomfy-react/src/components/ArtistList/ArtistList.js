@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { ArtistListContainer, ArtistListContainerTitle } from './ArtistList.styled'
+import { ArtistListContainer, ArtistListContainerTitle, CardContainer } from './ArtistList.styled'
 import ArtistCard  from './ArtistCard'
 
 export default class ArtistList extends Component{
@@ -9,13 +9,22 @@ export default class ArtistList extends Component{
                 <ArtistListContainerTitle>
                     Most listened artist by month
                 </ArtistListContainerTitle>
-                <ArtistCard>
 
-                </ArtistCard>
+                <CardContainer>
+                    <ArtistCard>
 
-                <ArtistCard>
+                    </ArtistCard>
 
-                </ArtistCard>
+                    <ArtistCard>
+
+                    </ArtistCard>
+
+                    <ArtistCard>
+
+                    </ArtistCard>
+
+                    
+                </CardContainer>                
 
             </ArtistListContainer>
         )

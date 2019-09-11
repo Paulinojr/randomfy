@@ -7,7 +7,11 @@ const ArtistCardContainer = styled.div`
     width: 100%;
     padding: 10px;
     justify-content: space-between;
+    align-self: center;
     overflow: hidden;
+    @media (min-width: 1200px){ 
+        width: 32%;
+    } 
 
     `
 

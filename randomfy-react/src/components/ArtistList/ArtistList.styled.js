@@ -5,9 +5,11 @@ const ArtistListContainer = styled.div`
     height: 100%;
     width: 100%;
     justify-content: center;
-    align-items: baseline;
     display: flex;
     flex-direction: column;
+    @media (min-width: 1024px){ 
+        
+    } 
 `
 
 const ArtistListContainerTitle = styled.h1`
@@ -18,11 +20,11 @@ const ArtistListContainerTitle = styled.h1`
     width: 100%;
     display:flex;
     justify-content: center;
-    @media only screen and (max-width: 600px){
+    @media only screen and (max-width: 1024px){
         font-size: 21px;
         margin-top: 10%;
     }
-    @media only screen and (min-width: 600px){
+    @media only screen and (min-width: 1024px){
         text-align: center;
         justify-content: flex-start;
         margin-left: 50px;
@@ -30,4 +32,14 @@ const ArtistListContainerTitle = styled.h1`
     }
 `
 
-export { ArtistListContainer, ArtistListContainerTitle }
+const CardContainer = styled.div`
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    @media (min-width: 1024px){ 
+        flex-direction: row;
+    } 
+`
+
+
+export { ArtistListContainer, ArtistListContainerTitle, CardContainer }
